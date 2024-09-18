@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./page/home";
 import Login from "./page/login";
 import Dashboard from "./page/admin";
+import PrivateRoute from "./component/private-route";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -16,7 +17,13 @@ const App = () => {
     },
     {
       path: "admin",
-      element: <Dashboard />,
+      element: <PrivateRoute />,
+      children: [
+        {
+          path: "dashboard",
+          element: <Dashboard />,
+        },
+      ],
     },
   ]);
 
@@ -24,3 +31,7 @@ const App = () => {
 };
 
 export default App;
+
+// Single Page Application
+// chỉ sử dụng 1 trang duy nhất
+// khi chuyển trang => thay đổi cái nội dung bên trong trang web
