@@ -1,0 +1,10 @@
+.home {
+  min-height: 100vh;
+
+  &__main-content {
+    padding: 20px 300px;
+    background-color: rgb(249, 240, 228);
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
